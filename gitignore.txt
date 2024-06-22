@@ -1,8 +1,0 @@
-# files to be ignored  #
-/dev
-/prod
-/__pycache__
-DockerFile
-Dockerignore
-README.Docker.md
-compose.yaml
