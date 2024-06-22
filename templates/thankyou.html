@@ -1,0 +1,77 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPUTER NETWORKING QUIZ</title>
+</head>
+<style>
+    body{
+        background-color: #fefded;
+    }
+    @font-face{
+            font-family: outro;
+            src: '{{ url_for('static', filename="LivingColoursPersonalUse.ttf")}}';
+            font-weight: bold;
+        }
+    .header{
+            color: #ffff;
+            font-size: 200%;
+            font-family: 'book antiqua';
+            padding-top: 0px;
+            padding-bottom: 55px;
+            padding-left: 10px;
+            background-color: #2a3222;
+        }
+    .container{
+        float: right;
+        font-family: 'book antiqua';
+        color: #325b73;
+        text-align: right;
+        align-items: right;
+        padding: 1px 10px;
+        margin: 7px 25px 10px 10px;
+        background-color: #fefded;
+        border-radius: 10px;
+    }
+    .info_box{
+        float: left ;
+        margin: 7px 25px 10px 10px;
+    }
+    .thankyou{
+        align-items: center;
+        font-family: outro;
+        color: #2a32222a;
+        margin-bottom: -15vw;
+    }
+    .center {
+        display: block;
+        margin: 9% -0% 15% 25%;
+        width: 50%;
+        text-align: center;
+    }
+    .note {
+        color: #2a3222;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        padding: 25px 0px 25px 0px;
+        max-width: 60%;
+        margin: -10% 25%;
+        font-size: 200%;
+        border: 5px solid#2a3222;
+        border-radius: 20px;
+    }
+</style>
+<body>
+    <div class="header">
+    <div class="info_box" id="countdown">Computer Networking Quiz</div>
+    <div class="container">{{uid}}</div>
+    </div>
+    <!--"{{url_for('static', filename='ThankYou.png')}}"-->
+    <div class="thankyou"><img src="{{url_for('static', filename='ThankYou.png')}}" class="center"></div>
+    <div class="center">
+        <h1>You scored : {{mark}} </h1>
+    </div>
+    <br>
+    <div class="note">Developed By Sumant Dhere<br>Designed By Somshekhar Bharai</div>
+</body>

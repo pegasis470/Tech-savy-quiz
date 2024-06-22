@@ -1,0 +1,180 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPUTER NETWORKING QUIZ</title>
+</head>
+<style>
+    .box{
+        display: flex;
+        align-items: stretch;
+    }
+    .qustionbox{
+        color: #2a3222;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+        margin: 50px 0px 20px 0px;
+        padding-bottom: 10px;
+        font-size: 150%;
+        border: 2px solid#2a3222;
+        border-radius: 20px;
+    }
+    .container{
+        float: right;
+        font-family: 'book antiqua';
+        color: #325b73;
+        text-align: right;
+        align-items: right;
+        padding: 1px 10px;
+        margin: 7px 35px 10px 10px;
+        background-color: #fefded;
+        border-radius: 10px;
+    }
+    .info_box{
+        float: left ;
+        margin: 7px 25px 10px 10px;
+    }
+    .button-box{
+        align-items: center;
+    }
+    .button{
+        background-color: #2a3222;
+        font-family: 'book antiqua';
+        color: white;
+        padding: 20px 50px ;
+        text-align: center;
+        display: inline-block;
+        margin: 60px 10px 2px 4px;
+        font-size: xx-large;
+        cursor: pointer;
+        border-radius: 40px;
+        align-items: center;
+    }
+    .button:hover{
+        background-color: #ffffff;
+        box-shadow: 5px 5px 5px #2a4747;
+        color: black;
+    }
+    .center {
+            margin: 3vw;
+            position: absolute;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        } 
+    /*.header{
+        background-color: #ff5100;
+        font-weight: bold;
+        font-size: 150%;
+        padding: 10px 100px 10px 100px;
+        margin: -10px -10px 0px -10px;
+    }*/
+    .header{
+            position: fixed;
+            color: #ffff;
+            font-size: 200%;
+            font-family: 'book antiqua';
+            padding-top: 0px;
+            padding-bottom: 0px;
+            padding-left: 10px;
+            background-color: #2a3222;
+            width: 100%;
+            z-index: 1000;
+        }
+    code {
+    display: inline-block;
+    text-align: left;
+    white-space: wrap;
+    background-color: #3b3b3b;
+    padding: 10px;
+    margin: 2px 100px 0px 0px;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;    
+    line-height: 1.5;
+    color: rgb(255, 255, 255);
+}
+
+.keyword {
+    color: rgb(0, 110, 255);
+    font-weight: bold;
+}
+.def{
+    color: rgb(201, 201, 7);
+}
+.comment {
+    color: green;
+    font-style: italic;
+}
+
+.string {
+    color: rgb(255, 112, 112);
+}   
+.special{
+    color: rgb(255, 78, 255);
+    font-weight: bold;
+}
+</style>
+<body>
+    <div class="header">
+    <div class="info_box" id="countdown">{{time}}</div>
+    <div class="container">{{id}}</div>
+    </div><br>
+    <div style="row-gap: 50px;">
+    <form id="quiz" action="" method="post">
+    {% for qus in data %}
+    <div class="qustionbox">
+        <br>
+        <label for="{{loop.index}}">{{loop.index}} {{qus.qustion}}<br>
+        </label>
+        <input type="radio" id="mcqOption1A" name="{{loop.index}}" value="A">
+        <label for="mcqOption1A">{{qus.choice1}}</label>
+        <input type="radio" id="mcqOption1B" name="{{loop.index}}" value="B">
+        <label for="mcqOption1B">{{qus.choice2}}</label><br>
+        <input type="radio" id="mcqOption1C" name="{{loop.index}}" value="C">
+        <label for="mcqOption1C">{{qus.choice3}}</label>
+        <input type="radio" id="mcqOption1D" name="{{loop.index}}" value="D">
+        <label for="mcqOption1D">{{qus.choice4}}</label><br>
+    </div>
+    {% endfor %}
+        <input type="hidden" id="unique_id" name="unique_id" value="{{unique_id}}">
+        <input type="hidden" name="start" value="{{start}}">
+        {% for seq in seq_list %}
+        <input type="hidden" name="seq {{loop.index}}" value="{{seq}}">
+        {% endfor %}
+        <div class="center">
+        <button class="button" type="submit">Submit</button>
+    </div>
+    </div>    
+</form>
+</div>
+
+    <script>
+        // Function to submit the form after 1 hour
+        function submitFormAfterDelay() {
+            document.getElementById('quiz').submit();
+        }
+
+        // Function to update the countdown timer
+        function updateCountdown() {
+            var countdownElement = document.getElementById('countdown');
+            var secondsLeft = 900; 
+            var intervalId = setInterval(function() {
+                var minutes = Math.floor(secondsLeft / 60);
+                var seconds = secondsLeft % 60;
+                countdownElement.textContent = 'Time left: ' + minutes + ' minutes ' + seconds + ' seconds';
+                secondsLeft--;
+                if (secondsLeft < 0) {
+                    clearInterval(intervalId);
+                    countdownElement.textContent = 'Submitting form...';
+                    submitFormAfterDelay();
+                }
+            }, 1000); // Update every second
+        }
+
+        // Call the function to start the countdown
+        updateCountdown();
+    </script>
+</body>
+</html>

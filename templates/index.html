@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>COMPUTER NETWORKING QUIZ</title>
+    </head>
+    <style>
+        body{
+            background-color: #fefded;
+        }
+        .center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        .bigredbutton
+        {   background-color: #2a3222;
+            font-family: 'book antiqua';
+            color: white;
+            padding: 20px 20px ;
+            text-align: center;
+            display: inline-block;
+            margin: 30px 150px 2px 4px;
+            font-size: xx-large;
+            cursor: pointer;
+            border-radius: 40px;
+        }
+        .bigredbutton:hover{
+            background-color: #ffffff;
+            box-shadow: 5px 5px 5px #2a4747;
+            color: black;
+        }
+        .header{
+            color: #ffff;
+            font-size: 200%;
+            font-family: 'book antiqua';
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            background-color: #2a3222;
+        }
+        .form{
+            display: inline-block;
+            text-align: right;
+            color: rgb(24, 97, 161);
+            font-size: 150%;
+        }
+        .label{
+            font-size: 45px;
+            color: #325b73;
+            /*margin: 175px;*/
+            font-family: 'book antiqua';
+            display: inline-block;
+            text-align: left;
+            width: 100%;
+        }
+        input[type=text]{
+            margin: 0px 40px ;
+            border: 5px solid #2a3222;
+            font-size: large;
+            font-family: 'book antiqua';
+            color: #325b73;
+            padding: 10px 200px 10px 10px;
+            border-radius: 22px;
+            box-sizing: border-box;
+        }
+        select {
+            margin: 0px 43px;
+            border: 5px solid #2a3222;
+            padding: 10px 320px 13px 10px;
+            border-radius: 22px;
+            background-color: #ffffff ;
+        }
+    </style>
+    <body>
+        <div class="header">Computer Networking Quiz</div>
+        <div class="center">
+            <form class="form" action="/quiz" method="get">
+                <label class="label" for="name">Name</label><br>
+                <input type="text" name="name" placeholder="Enter your name">
+                <br>
+                <label class="label" for="name">Section</label><br>
+                <select name="sec">
+                    <option value="MCA(plain) A">MCA(plain) A</option>
+                </select>
+                <br>
+                <label class="label" for="name">Enrollment</label><br>
+                <input type="text" name="ENR" placeholder="Enter your Enrollmant"><br>
+                <input class="bigredbutton" type="submit" value="Start Quiz">
+            </form>
+    </div>
+    </body>
+</html>
